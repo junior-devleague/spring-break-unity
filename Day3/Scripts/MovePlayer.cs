@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 //"Using" tells your script that you want to use the Unity Engine. 
 //Without this line, your script won't know what any of the Unity components are.
+//Unity puts these lines here for you automatically.
+//System.Collections allows you to access some extra data types C# uses for lists and groups of objects. 
+//We won't be using these in this script, but some Unity components need them to work.
 
 public class MovePlayer : MonoBehaviour {
 	//When you make a script, Unity automatically gives you the above line.
@@ -18,12 +21,6 @@ public class MovePlayer : MonoBehaviour {
 
 	Vector3 movement;
 	//We'll need a Vector3 to hold the x, y and z positions of our object when we move it.
-
-	Animator animator;
-	//We'll need to tell our Animator that we're moving, so it knows to play our walking animation.
-
-	AudioSource playerAudio;
-	//We need an AudioSource to make our character play sounds when doing actions like jumping.
 
 	float h, v;
 	//If you have multiple variables of the same type, you can declare them on one line like this.
@@ -51,12 +48,6 @@ public class MovePlayer : MonoBehaviour {
 		//We tell Unity about other components attached to our GameObject using GetComponent<type>().
 		//So, since we need to get the object's Rigidbody in order to move it, we do that here.
 		rb = GetComponent<Rigidbody>();
-
-		//We do the same for our animator.
-		animator = GetComponent<Animator>();
-
-		playerAudio = GetComponent<AudioSource> ();
-
 	}
 	
 	//Unity also gives us an Update function automatically.
@@ -131,31 +122,17 @@ public class MovePlayer : MonoBehaviour {
 		//Finally we set its velocity to the new value.
 		rb.velocity = newVelocity;
 
-		//Now we need to tell our animator that we're moving.
-		//We need to see if our input is zero on both axes.
+		//Now we need to have the character look where it's going.
+		//We need to see if our input is zero on both axes, and only rotate when that is not true.
 		//However, h and v are floats. Computers don't know what to do with numbers with decimal points, and can't compare them precisely.
 		//If we try to check if h == 0, it doesn't always work, since it might see something like 0.0000001.
 		//However, there's a trick we can use.
-		if (movement.sqrMagnitude <= 0.001) {
-			//The magnitude of a vector is how strong it is. 
-			//If its magnitude is less than this small decimal, we can assume its parts are all zero.
-
-			//If both are zero, we are not moving, and we tell the animator our speed is zero.
-			animator.SetFloat ("Speed", 0.0f);
-		} else {
-			//If the statement in the parentheses is NOT true, we run the "else" block.
-
-			//If the character is moving, we want the character to face the same direction it is moving in.
-
+		if (movement.sqrMagnitude > 0.001) {
+			
 			rb.MoveRotation(Quaternion.LookRotation(movement));
 			//Quaternion.LookRotation gives us a rotation that turns the object so its forward direction is pointing at the direction given.
 			//We use MoveRotation to apply that rotation to our character.
 
-			if (isGrounded ()) {
-				//We don't want the character to walk in the air, so we check if it is grounded.
-				animator.SetFloat ("Speed", 1.0f);
-				//Here we tell the animator that we are moving and our speed is 1.
-			}
 		}
 	}
 
@@ -184,13 +161,8 @@ public class MovePlayer : MonoBehaviour {
 	}
 
 	void Jump() {
-		
+		//The player is only allowed to jump if they are on the ground.
 		if(isGrounded()) {
-			//Tell the animator to play a jump animation.
-			animator.SetTrigger("IsJumping");
-
-			playerAudio.Play ();
-			//Play our jump sound.
 
 			rb.AddForce (Vector3.up * jumpPower, ForceMode.Impulse);
 			//Jump is similar to Move. Here, we use a Vector3 shorthand to tell us where we're going.
