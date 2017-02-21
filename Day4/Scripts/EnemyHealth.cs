@@ -1,11 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class EnemyHealth : MonoBehaviour {
 
 	Rigidbody rb;
-	AudioSource enemyAudio;
-	//Our enemy will make a noise when we attack it.
 	EnemyMove enemyMove;
 	//We need these to keep our enemy from moving once it is dead.
 	EnemyAttack enemyAttack;
@@ -40,8 +38,6 @@ public class EnemyHealth : MonoBehaviour {
 			//If this enemy is not dead yet...
 			currentHealth -= amount;
 			//Subtract from its health.
-			enemyAudio.Play();
-			//Play a sound.
 			if (currentHealth <= 0) {
 				//If health would be negative, set it back to zero.
 				currentHealth = 0;
