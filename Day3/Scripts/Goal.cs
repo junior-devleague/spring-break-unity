@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Goal : MonoBehaviour {
@@ -27,10 +27,6 @@ public class Goal : MonoBehaviour {
 			//This will print a message to the console when the player touches this object.
 			//If you look at your Console tab, or the bottom edge of your Game view, you should see this message when your player touches this goal.
 			//We will do more with this later... soon, this will take you to the next level, or a victory screen!
-
-			LevelOverManager.WinLevel ();
-			//That's all it takes to tell the LevelOverManager that we've completed this level.
-
 		}
 	}
 
