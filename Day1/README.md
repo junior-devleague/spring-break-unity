@@ -7,4 +7,4 @@ By the end of this lesson, students should be able to...
 
 ###Intro to the Editor
 
-###Intro to C#
+###Intro to C-Sharp
