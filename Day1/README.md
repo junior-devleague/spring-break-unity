@@ -15,7 +15,8 @@ MonoDevelop is the script editor for Unity. This program is like a text editor, 
 
 If you've opened up a script made in Unity, you'll see a few things are automatically filled in for you. You should see something like this:
 
-`using UnityEngine;
+```
+using UnityEngine;
 using System.Collections;
 
 public class MyScript : MonoBehaviour {
@@ -27,7 +28,8 @@ public class MyScript : MonoBehaviour {
   //Update runs once every frame
   void Update() {
   }
-}`
+}
+```
 
 By the end of today, you'll know what these parts all do to make things happen in your game.
 
