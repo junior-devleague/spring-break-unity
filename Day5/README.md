@@ -43,7 +43,7 @@ Then, edit PlayerMove to set the trigger for "IsJumping" in your jump function.
 
 Now that you've used an Animator, you can make your own clips. We're going to make a Text element that tells the player they've either won or lost, and it will fade in smoothly. To do this, we will change its _alpha channel_ (transparency) over time. Place an Animator component on your Canvas and open it up in the Animation window (Window -> Animation).
 
-[](https://github.com/junior-devleague/spring-break-unity/blob/master/Day5/Screenshots/animation.png)
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day5/Screenshots/animation.png)
 
 ####Completing a level
 
