@@ -7,9 +7,59 @@ By the end of this lesson, students should be able to...
 
 ###Intro to the Editor
 
-Finally, if you right-click on a Script file and select "Edit Script", you will see another program called MonoDevelop come up.
+When you open up the Unity program, you'll see a splash screen like this one:
+
+Create a new project and give it a name. When you click "Create Project", it'll open a screen that looks similar to this one:
+
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day1/Screenshots/editor.png)
+
+Yours might not look exactly like this one. Unity comes with a few different layouts, and the one pictured here is the 2 by 3 layout. Just go to Window -> Layouts -> 2 by 3 to switch it over. You can drag elements around and put them wherever.
+
+The tabs shown here should be the default ones. It's a good idea to have these five tabs open at all times:
+
+####The Scene View
+The scene view is the view of your scene, or level. You can rotate around and zoom in or out to look at and adjust anything in the scene. The scene view, and the rest of Unity, use the 3D coordinate system of (x, y, z). The weird floating object in the top-right corner of the Scene View is a reminder of how what you're looking at maps to these coordinates.
+- The red direction represents X, which is right and left. The red side of the pointer shows which side is right.
+- The green direction represents Y, which is up and down. The green side of the pointer shows which side is up.
+- The blue direction represents Z, which is forward and back. The blue side of the pointer represents which side is forward.
+
+Use the hand tool to move around the scene by dragging. Hold the Alt key to change the direction you're looking. Use the scroll gesture on your mouse to zoom in and out.
+
+####The Game View
+The game view is how your game will look when you hit the Play button. The view in this tab is based on the Main Camera in your scene--when you move the camera, the Game View will be looking at different things. You can't move things around or change the viewing angle from the Game View, only the Scene View.
+
+####Hierarchy
+This is a list of all objects in your scene. When you make a new project, Unity puts a camera and a light in the scene for you. The order objects are in doesn't necessarily matter in a 3D game, although if you are using 2D sprites or elements this order will determine what goes on top of what. 2D elements like sprites and menus will render things at the top of the hierarchy first (behind other things), and things at the bottom will render last (in front of other things). Like folders and files, objects in the hierarchy can have child objects, that are considered part of the same object. For example, you could have a Player object with a sprite as a child object, so that the character's graphics are still part of the character but can be controlled separately in space. You can also use an empty GameObject as a container for objects of a similar type, to keep organized--any non-moving scenery or level geometry might be able to go under an "Environment" object just for organization, so you can collapse it and easily see the other things in the Hierarchy if you have a large level with lots of objects.
+
+####Project tab
+The Project tab represents the folder that you saved your Unity project to, and shows you all files and folders that are part of that project. If you import audio or pictures into your game, they will be saved here. It's a good idea to make separate folders for each type of file--one for Scripts, one for Audio, one for Animations, one for Images, one for Materials.
+
+####The Inspector
+The Inspector tab will be blank until you select an object in the hierarchy. Once you do, it will look like this:
+
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day1/Screenshots/inspector.png)
+
+The Inspector gives us all the details about an object. Here, you can see its name, any tags it has, and several things with checkboxes next to them. These are called components. Components are parts you can attach to an object to make it do something. For example, the Directional Light object I selected has a Light component attached. If I uncheck the box, the lighting in my scene will no longer work, and everything will be dark.
+
+Components have text fields, checkboxes, sliders and dropdown lists to let you configure their behavior from the Inspector. For example, look at the Transform component attached to this light. Some of the values for Rotation have been changed, so that the light comes in at an angle. The position is at 0, 3, 0, meaning it is slightly above the center of the game world. The scale is 1, 1, 1, meaning it's the normal size for its type.
+
+There's also a little gear icon at the top right of each component. This will open a menu that lets you copy, paste or remove that component. To add a new component, press the Add Component button at the bottom. You can search by name or by category. If I wanted to add a Lens Flare to my light, I could type "Lens" in the bar or go to Effects -> Lens Flare.
+
+####Creating things
+
+Let's start by creating a cube in our scene. Go to the GameObject menu and select 3D Object, then Cube. You'll see a Cube in your scene view and your hierarchy. You can also right-click in the Hierarchy to bring up the GameObject menu and do it from there.
+
+Let's put an image on our cube. Find an image you like and save it, then go to the Assets menu and select "Import New Asset". You can also right-click in the Project tab and do it from there. Then, select your image and import it. You should see it in your Project tab.
+
+To put an image, or _texture_, on a 3D object, we have to make something called a _material_. The material takes the texture and adds extra information about how it will cover the 3D object's surface and how it will be lit. This time, from the Assets menu, go to Create and then go to Material. Click the material and drag it onto the Cube in the Hierarchy.
+
+Select the material you just made in th Project tab, and look at the Inspector. You'll see a little bulls-eye symbol next to something called an "Albedo". Click the bulls-eye and a menu will come up with a list of images you can select. You should see the one you just imported. When you click it, you'll see your Cube is now covered in that image.
+
+Let's try another. A script is the code that will tell Unity objects what to do--otherwise, they'll just sit there floating frozen in space when you press play. Open the Assets menu again and this time, select Create -> C# Script. You should see a script show up in your Project tab. Give it a name. When you right-click on the Script file and select "Edit Script", you will see another program called MonoDevelop come up.
 
 ###Intro to C-Sharp
+
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day1/Screenshots/monodevelop.png)
 
 MonoDevelop is the script editor for Unity. This program is like a text editor, but with some added features that allow you to easily spot spelling and punctuation errors, and a few extra things like built-in testing for the programs you write. Editors like these are called *integrated development environments*, or IDE, and you'll probably see others like it later on. If you choose to work in Unity at home on a Windows computer, for example, you might find Visual Studio, a similar program, more to your liking. Of course, MonoDevelop also runs on Windows too.
 
