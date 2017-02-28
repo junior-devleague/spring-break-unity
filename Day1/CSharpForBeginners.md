@@ -54,6 +54,40 @@ There are also some operators for comparison, which work like standard math comp
 - Less than: `<`. So, 5 < 3 will give us "false".
 - Less than or equal to: `<=`.
 - Equal to: `==`. *Since we use a single equal sign to assign to variables, we have to use a double equals sign to ask if two values are equal without assigning the second value to the first.*
+- Not equal to: `!=`.
+
+####Conditionals
+
+Conditionals are a way to tell the script, "if this condition is true, do this thing; if it's not, do this other thing." Conditionals use boolean values to check if they should do any code within the if-block. An example:
+
+```
+if(playerHealth > 0) {
+  Attack();
+} else {
+  Die();
+}
+```
+This will only do Attack() if the player has more than zero health. Once it does the 'if' part, it ignores the 'else' part. Otherwise, if the player's health is NOT greater than zero, it will ignore the Attack() command and jump straight to Die().
+
+There are some additional operators that work on boolean values.
+- AND: `&&`. The whole statement will be true only if all statements joined by an `&&` are true. `if(playerHealth > 0 && playerMP > 0) { ... }`
+- OR: `||` The whole statement will be true if at least one of the statements is true. `if(health <= 0 || timer <= 0) { ... }`
+- NOT: `!` will use the opposite value of the statement. For example, if you wanted to attack only if the player is NOT dead, you might use: `if(!playerDead) { Attack(); }`
+
+####Loops
+
+A loop is a set of actions that will run while a condition is true. We use loops to do actions multiple times, expecially if we have a collection of objects and we need to do something to each of them. We'll mostly be using a _for loop_, like this one:
+
+```
+int count = 5;
+for (int i = 0; i < count; i++) {
+  score++;
+}
+```
+
+A for loop has three parts: starting the counter, the condition that must be true for the loop to run, and what happens to the counter at the end of each item in the loop. This loop will start a counter variable `i` at zero, and, while `i` is less than the number `count`, it will do the action inside the braces and then do the last action in the for loop. The `++` after an integer variable is a short way of telling it to do `i = i + 1;`.
+
+This is part of a bit of code that will make the player's score slowly count up when they win points, instead of it happening all at once.
 
 ####Functions
 
