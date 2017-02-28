@@ -12,6 +12,10 @@ By the end of the day, students should be able to...
 
 Under the Edit menu, you will see an option near the bottom called "Project Settings". These allow you to control settings for your entire project that will apply to all levels in your game.
 
+![](https://docs.unity3d.com/uploads/Main/ProjectSettingsMenu.png)
+
+(image source: [Unity Docs](https://docs.unity3d.com/Manual/Saving.html))
+
 ####Input
 
 This lets you change how Unity interprets the controls to your game. By default, it has support for WASD and arrow keys for the Horizontal and Vertical movement controls, and a few buttons defined for Jump, Fire 1, Fire 2, Fire 3, as well as some presets for handling mouse movement. If you wanted to add support for a particular type of controller or joystick, you would go here.
@@ -64,9 +68,13 @@ You should have these open in the Editor already, but if you accidentally close 
 
 ####Animation
 
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day5/Screenshots/animation.png)
+
 This tab lets you create AnimationClips that can change the shape, color, size or position of objects over a period of time. We'll be working with this on Day 5.
 
 ####Profiler
+
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day2/Screenshots/profiler.png)
 
 The Profiler gives you in-depth information about what the computer's processor is doing while running your game. When you press Play on a scene while the Profiler tab is open, it will start recording the game's performance. You can see if there's any spikes in processing time, and then look closer at what might be causing it.
 
@@ -78,6 +86,8 @@ This is where you can control audio effects and how sounds and music mix togethe
 
 ####Asset Store
 
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day5/Screenshots/assetstore.png)
+
 This tab lets you go to Unity's asset store and find content that other people have made available to others. These can be scripts, audio packs, character sprites, or 3D models, or even tools to improve the Editor itself. Most things on the Asset Store cost money, but if you search by "price:0" you can find a lot of free content to add to your game.
 
 ####Version Control
@@ -85,6 +95,8 @@ This tab lets you go to Unity's asset store and find content that other people h
 This lets you set up Unity to integrate with a version control service like Git. Depending on your version of Unity this might be greyed out. If you've used Git before, you can always do it yourself through a service like GitHub.
 
 ####Animator and Animator Parameter
+
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day5/Screenshots/animator.png)
 
 This is where you can configure an Animator component that's attached to a GameObject, and control which animations play when. The list of Animator Parameters stays at the left of this tab, and lets you define the conditions that cause an animation to play or stop. For example, a parameter based on the player's speed might control whether the walking animation plays or stops. We'll be using this more on Day 5.
 
@@ -98,6 +110,8 @@ This tab lets you use Unity's built-in pathfinding AI to determine how AI charac
 
 ####Console
 
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day1/Screenshots/error.png)
+
 It's a good idea to always have this tab open. The Console gives you information about any errors in your script, and also how to fix them. You can also use it to check what a variable looks like in your script by having that script call `Debug.Log`.
 
 ##Common components
@@ -110,6 +124,10 @@ A Collider is what gives an object volume in space. With a Collider, other objec
 
 Most objects' physical space can be estimated by a combination of BoxColliders, CapsuleColliders and SphereColliders, and it's almost always better to do so with these than with a MeshCollider. The MeshCollider makes a separate collision plane for each face an object has--which isn't a problem for a flat wall or floor, but for a complex shape like a character's face, it's overkill which ends up slowing the physics engine down. A character that stands on two legs can usually make do with a single CapsuleCollider sized to fit its head, body and legs, while a weapon might be made of a few BoxColliders put together.
 
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day4/Screenshots/hitbox.png)
+
+(An object with two colliders attached. One is a trigger and one is not.)
+
 The Colliders also provide a checkbox to turn a solid Collider into a Trigger. A Trigger does not behave like a solid object, and other objects can pass through it, but any objects attached to this Trigger Collider will now run a function called OnTriggerEnter when this happens. Almost every game uses these to determine things like enemy hitboxes, crossing the finish line, opening a door, picking up an item, or having an enemy chase a player that came too close.
 
 Lastly, there are a few extra 3D colliders that provide more complex functionality for simulating car wheels and uneven ground. We don't need them for this project, but you might use them in other kinds of games.
@@ -119,6 +137,8 @@ Lastly, there are a few extra 3D colliders that provide more complex functionali
 The MeshRenderer is what determines if a 3D object is visible or not, and how to render it to the screen. It takes a Material and applies it over the surface of the object. You can disable or remove the MeshRenderer from an object to make it invisible. For 2D games, the SpriteRenderer does the same thing.
 
 ###Rigidbody
+
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day3/Screenshots/rigidbody.png)
 
 A Rigidbody is what gives an object mass and allows it to be affected by physics. Objects with Rigidbodies will be affected by gravity and start falling until they find a surface to rest on. We can also use the Rigidbody in our scripts to control how fast an object is moving, rotate it, push it around with engine force or with explosions, make it bounce and jump, or even make it teleport to another position. Any object that needs to move around will need a Rigidbody.
 
