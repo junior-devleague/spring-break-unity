@@ -8,14 +8,24 @@ By the end of today's lesson, students should be able to...
 - Import sounds and background music into a project.
 
 ####Importing and using assets
-You can access the Asset Store from within Unity and download directly from there. Go to Window -> Asset Store and a tab will open in your editor. You can search using the searchbar, but you cannot paste links directly. To make things easier, you can sign into your Unity account in the browser and add assets to your wish list from there, and then access them from within the editor. Once you download, Unity will automatically extract them into your current project. Some assets are paid, though there are plenty of free assets available. We've found some for you already in the Resources section of this page.
+You can access the Asset Store from within Unity and download directly from there. Go to Window -> Asset Store and a tab will open in your editor. 
+
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day5/Screenshots/assetstore.png)
+
+You can search using the searchbar, but you cannot paste links directly. To make things easier, you can sign into your Unity account in the browser and add assets to your wish list from there, and then access them from within the editor. Once you download, Unity will automatically extract them into your current project. Some assets are paid, though there are plenty of free assets available. We've found some for you already in the Resources section of this page.
 
 ####Animating a Character
 Import the Mr. RabZ character first. Inside the Mr. RabZ folder, you should see a folder called "Models". Select the one named "rabbit" and add it to your scene. He comes with one component already attached - an Animator.
 
 Copy all of the components from your Player and paste them onto the rabbit. Make sure you haven't forgotten any public variables or the ParticleSystem child object.
 
-Now, open up the Animator tab in the editor and select Mr. RabZ in the Hierarchy. You should see a few states already created, and a parameter "Speed" already defined. If you look at the connection between "Idle" and "Walk", you'll see that it will change from "Idle" to "Walk" when Speed is greater than 0.1.  The connection from "Walk" to "Idle" is the same but reversed.
+Now, open up the Animator tab in the editor and select Mr. RabZ in the Hierarchy. You should see a few states already created, and a parameter "Speed" already defined.
+
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day5/Screenshots/animator.png)
+
+If you look at the connection between "Idle" and "Walk", you'll see that it will change from "Idle" to "Walk" when Speed is greater than 0.1.  The connection from "Walk" to "Idle" is the same but reversed.
+
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day5/Screenshots/animationtransition.png)
 
 Unfortunately, the Animator doesn't know to change that variable automatically. We need to change our MovePlayer script to interact with the Animator and tell it what our speed is.
 
@@ -31,7 +41,9 @@ Then, edit PlayerMove to set the trigger for "IsJumping" in your jump function.
 
 ####Creating your own AnimationClip
 
-Now that you've used an Animator, you can make your own clips. We're going to make a Text element that tells the player they've either won or lost, and it will fade in smoothly.
+Now that you've used an Animator, you can make your own clips. We're going to make a Text element that tells the player they've either won or lost, and it will fade in smoothly. To do this, we will change its _alpha channel_ (transparency) over time. Place an Animator component on your Canvas and open it up in the Animation window (Window -> Animation).
+
+[](https://github.com/junior-devleague/spring-break-unity/blob/master/Day5/Screenshots/animation.png)
 
 ####Completing a level
 
@@ -41,7 +53,11 @@ Once it's done, you can call LevelOverManager.WinLevel() from your Goal script, 
 
 You can now create a start menu. Create a new empty scene with a Button element. Attach a script called StartGame to it, with a public method StartGame that will load scene 1 when pressed. Assign this method as the action for clicking this button. Save this scene as StartMenu.unity.
 
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day5/Screenshots/button.png)
+
 Now, go to File -> Build Settings. Select "Add Open Scenes". You'll see StartMenu as Scene 0. You can now switch back to the scene you were working on and repeat these steps to make it Scene 1.
+
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day5/Screenshots/buildsettings.png)
 
 Finally, create another empty scene. Give this one a text element telling the player "You Won!". Then add it as Scene 2. This is so that winning the level doesn't crash the game. You can always add more levels on your own.
 
@@ -58,6 +74,10 @@ To make an object play sound effects, the process is similar. Place an AudioSour
 Then, in MovePlayer, include a reference to your AudioSource and tell it to Play when the character jumps.
 
 Use the same process to make the enemy play the explosion sound when it takes damage.
+
+####Building your game
+
+Once your scenes are in order and you want to share your game with others, go back to the Build Settings screen and click Build. Select "PC, Mac and Linux Standalone" and select the Target Platform that matches the computer you want to run your game on. It will save your game as an application file you can share and have people play!
 
 ###Resources
 We have selected three asset packages from the Unity Asset Store which are free to download. In consideration of this, these assets will not be uploaded here but linked below to download from the Asset Store directly. Please support the original creators by leaving them a review if possible.
