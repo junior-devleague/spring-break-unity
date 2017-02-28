@@ -11,6 +11,8 @@ By the end of today's lesson, students should be able to...
 
 Here, we'll make some cool visual effects to happen when an enemy is attacked. We can do this by using a ParticleSystem. Select your Player and create a ParticleSystem GameObject as a child of the player. (Not as a component of the player -- then it will happen in the wrong direction!) You should see the ParticleSystem component menu in the Inspector when you select the ParticleSystem object.
 
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day5/Screenshots/particle.png)
+
 The important things here are the fact that it is rotated -90 degrees around the X axis, so that its forward axis actually points up, and that its shape is set to Hemisphere. Set the Emission Rate to a large number, like 200. This will make a little explosion happen at the character's feet when it lands. Make sure that Looping and Play On Awake are unchecked, or else particles will constantly be spawning at the player's feet.
 
 Now, you can change the player's attack script to include a reference to the ParticleSystem in its child object (hint: `GetComponent()` has some related functions that can do this for you). When the player attacks an enemy, you can then tell that particle system to Play.
