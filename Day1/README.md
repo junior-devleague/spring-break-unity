@@ -51,9 +51,13 @@ Let's start by creating a cube in our scene. Go to the GameObject menu and selec
 
 Let's put an image on our cube. Find an image you like and save it, then go to the Assets menu and select "Import New Asset". You can also right-click in the Project tab and do it from there. Then, select your image and import it. You should see it in your Project tab.
 
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day1/Screenshots/import-image.png)
+
 To put an image, or _texture_, on a 3D object, we have to make something called a _material_. The material takes the texture and adds extra information about how it will cover the 3D object's surface and how it will be lit. This time, from the Assets menu, go to Create and then go to Material. Click the material and drag it onto the Cube in the Hierarchy.
 
 Select the material you just made in th Project tab, and look at the Inspector. You'll see a little bulls-eye symbol next to something called an "Albedo". Click the bulls-eye and a menu will come up with a list of images you can select. You should see the one you just imported. When you click it, you'll see your Cube is now covered in that image.
+
+![](https://github.com/junior-devleague/spring-break-unity/blob/master/Day1/Screenshots/create-material.png)
 
 Let's try another. A script is the code that will tell Unity objects what to do--otherwise, they'll just sit there floating frozen in space when you press play. Open the Assets menu again and this time, select Create -> C# Script. You should see a script show up in your Project tab. Give it a name. When you right-click on the Script file and select "Edit Script", you will see another program called MonoDevelop come up.
 
